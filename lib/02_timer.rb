@@ -14,10 +14,18 @@ class Timer
   end
 
   def time_string
-    if @time = 0
-      @time_string
+    result_string = ""
+    second = @time
+    minutes = (@time / 60) % 60
+    hour = @time
+    while second > 60
+      second = second % 60
     end
 
+    while hour > 60
+      hour = hour / 60
+    end
+    result_string = "#{padded(hour)}:#{padded(minutes)}:#{padded(second)}"
   end
 
   def second= second
@@ -32,7 +40,7 @@ class Timer
     if digit.to_s.length > 1
       return digit.to_s
     else
-      
+      return "0#{digit.to_s}"
   end
 end
 
