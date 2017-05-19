@@ -5,10 +5,12 @@ class Temperature
     @unit = hash.keys[0]
   end
 
-  def self.from_celsius
+  def self.from_celsius(temp)
+    self.new(c: temp)
   end
 
-  def self.from_fahrenheit
+  def self.from_fahrenheit(temp)
+    self.new(f: temp)
   end
 
   def in_fahrenheit
