@@ -21,9 +21,12 @@ class Timer
     while second > 60
       second = second % 60
     end
-
-    while hour > 60
-      hour = hour / 60
+    if @time >= 3600
+      while hour > 60
+        hour = hour / 60
+      end
+    else
+      hour = 0
     end
     result_string = "#{padded(hour)}:#{padded(minutes)}:#{padded(second)}"
   end
@@ -41,6 +44,7 @@ class Timer
       return digit.to_s
     else
       return "0#{digit.to_s}"
+    end
   end
 end
 
