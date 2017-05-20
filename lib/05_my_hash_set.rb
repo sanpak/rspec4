@@ -29,6 +29,63 @@
 # all the items of `set1` that aren't in `set2`.
 
 class MyHashSet
+  def initialize
+    @store = {}
+  end
+
+  def insert(el)
+    @store[el] = true
+  end
+
+  def include?(el)
+    @store.include?(el)
+  end
+
+  def delete(el)
+    @store.delete(el)
+  end
+
+  def to_a
+    # @store.to_a
+    @store.keys
+  end
+
+  def union(set2)
+    array = []
+    my_hash = MyHashSet.new
+    array = to_a | set2.to_a
+    #This part, I am repeating myself
+    #need to refactor
+    array.each do |num|
+      my_hash.insert(num)
+    end
+    my_hash
+  end
+
+  def intersect(set2)
+    array = []
+    my_hash = MyHashSet.new
+    array = to_a & set2.to_a
+    #This part, I am repeating myself
+    #need to refactor
+    array.each do |num|
+      my_hash.insert(num)
+    end
+      my_hash
+  end
+
+  def minus(set2)
+    array = []
+    my_hash = MyHashSet.new
+    array = to_a - set2.to_a
+    #This part, I am repeating myself
+    #need to refactor
+    array.each do |num|
+      my_hash.insert(num)
+    end
+      my_hash
+  end
+
 end
 
 # Bonus
